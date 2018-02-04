@@ -4,13 +4,21 @@ import Book from './Book'
 
 function BooksGrid(props) {
   return(
-    <ol className="books-grid">
-      {props.books.length > 0 && (
-        props.books.map((book, index) => (
-          <Book book={ book } key={ index }/>
-        ))
+    <div>
+      <ol className="books-grid">
+        {props.books.length > 0 && (
+          props.books.map((book, index) => (
+            <Book book={ book } key={ index }/>
+          ))
+        )}
+      </ol>
+
+      <div>
+      {props.books.length === 0 && (
+        <span style={{ display: 'flex', justifyContent: 'center'}}>Please type to search...</span>
       )}
-    </ol>
+      </div>
+    </div>
   )
 }
 BooksGrid.propTypes = {
