@@ -18,24 +18,38 @@ class BooksApp extends React.Component {
   state = {
     books: []
   }
+
   /*
     @description change the shelf of a book
     on the server and in the current state
-    @param {object} id - The id of the book to change
-    @param {string} newShelf - The new Shelf to store the book in
+    @param {object} book - The book to change
+    @param {string} newShelf - The new shelf to store the book in
   */
-  changeBookShelf = (id, newShelf) => {
+  changeBookShelf = (book, newShelf) => {
+    /* for better responsiveness, first save in state */
+    this.setState({ books: this.getChangedBooks(book.id, newShelf) })
     /* save to server */
-    BooksAPI.update(id, newShelf).then((result) => {
-      /* save to current state */
-      const changedBooks = this.state.books.map(element => {
-        if (element.id === id) {
-          element.shelf = newShelf
-        }
-        return element
-      })
-      this.setState({ books: changedBooks })
+    BooksAPI.update(book, newShelf).then((result) => {
+      console.log(result);
     })
+    .catch(error => alert('Sorry, changes couldn\'nt be stored on the server.'))
+  }
+
+  /*
+    @description change the shelf of a book with a
+    particular id, in the array of all books.
+    @param {string} id - The id of the book to change
+    @param {string} newShelf - The new Shelf to store the book in
+    @return {array} changedBooks - a new array with all the books, including the changed one.
+  */
+  getChangedBooks = (id, newShelf) => {
+    const changedBooks = this.state.books.map(element => {
+      if (element.id === id) {
+        element.shelf = newShelf
+      }
+      return element
+    })
+    return changedBooks
   }
 
   render() {
