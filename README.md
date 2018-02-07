@@ -33,7 +33,7 @@ npm install
 
 Inside the newly created project, you can run some built-in commands:
 
-### `npm start` or `yarn start`
+`npm start` or `yarn start`
 
 Runs the app in development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -45,13 +45,13 @@ You will see the build errors and lint warnings in the console.
 
 Currently no tests are defined. If you define tests you can run...
 
-### `npm test` or `yarn test`
+`npm test` or `yarn test`
 
 ### coding style
 
 The code was formatted using the [prettier](https://prettier.io/) code formatter and it's default settings.
 
-### `npm run build` or `yarn build`
+`npm run build` or `yarn buil`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -67,11 +67,7 @@ Your app is ready to be deployed.
 
 ## Contributing
 
-This is just a project for completing the React course at UDACITY. Contributing is not possible.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/hkfrei/alpinePassMap/tags).
+This is just a project for completing the React course. Contributing is not possible.
 
 ## Authors
 
