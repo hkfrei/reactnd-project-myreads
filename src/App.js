@@ -27,7 +27,7 @@ class BooksApp extends React.Component {
   */
   changeBookShelf = (book, newShelf) => {
     /* for better responsiveness, first save in state */
-    this.setState({ books: this.getChangedBooks(book.id, newShelf) })
+    this.setState({ books: this.getChangedBooks(book, newShelf) })
     /* save to server */
     BooksAPI.update(book, newShelf).then((result) => {
       console.log(result);
@@ -38,18 +38,39 @@ class BooksApp extends React.Component {
   /*
     @description change the shelf of a book with a
     particular id, in the array of all books.
+    If the book is not in the array, add it.
     @param {string} id - The id of the book to change
     @param {string} newShelf - The new Shelf to store the book in
     @return {array} changedBooks - a new array with all the books, including the changed one.
   */
-  getChangedBooks = (id, newShelf) => {
-    const changedBooks = this.state.books.map(element => {
-      if (element.id === id) {
+  getChangedBooks = (book, newShelf) => {
+    let changedBooks = []
+    /* if the book is already in state, change it */
+    if (this.bookInState(book.id)) {
+      changedBooks = this.state.books.map(element => {
+      if (element.id === book.id) {
         element.shelf = newShelf
       }
       return element
     })
+    } else {
+      /*
+        if it's a new book, add the shelf property
+        and combine it with current state.books
+      */
+      book.shelf = newShelf
+      changedBooks = this.state.books.concat([book])
+    }
     return changedBooks
+  }
+
+  /*
+    @description check if a book is allready in state
+    @param {string} id - The id of the book to check
+    @return {number} - >=1 if book is allready in state, 0 otherwise.
+  */
+  bookInState = (id) => {
+    return this.state.books.filter(book => book.id === id).length
   }
 
   render() {
