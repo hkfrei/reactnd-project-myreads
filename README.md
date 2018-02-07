@@ -13,11 +13,11 @@ git clone https://github.com/hkfrei/reactnd-project-myreads.git
 After that, you should have a new directory named "reactnd-project-myreads". Enter it by typing...
 `cd reactnd-project-myreads`.
 
-### Prerequisites
+## Prerequisites
 
 The project needs the package manager [Node](https://nodejs.org/en/) or [Yarn](https://yarnpkg.com/).
 
-### Installing
+## Installing
 
 While in the newly created "reactnd-project-myreads" folder, install all the dependencies.
 
@@ -45,13 +45,15 @@ You will see the build errors and lint warnings in the console.
 
 Currently no tests are defined. If you define tests you can run...
 
-`npm test` or `yarn test`
+#### `npm test` or `yarn test`
 
-### coding style
+## Coding style
 
 The code was formatted using the [prettier](https://prettier.io/) code formatter and it's default settings.
 
-`npm run build` or `yarn buil`
+## Build
+
+#### `npm run build` or `yarn build`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -73,7 +75,7 @@ This is just a project for completing the React course. Contributing is not poss
 
 * **Hanskaspar Frei**
 
-The starter Template is provided by [https://github.com/udacity/reactnd-project-myreads-starter](https://github.com/udacity/reactnd-project-myreads-starter)
+* The starter Template is provided by [https://github.com/udacity/reactnd-project-myreads-starter](https://github.com/udacity/reactnd-project-myreads-starter)
 
 ## Acknowledgments
 
