@@ -15,14 +15,6 @@ function BooksGrid(props) {
             />
           ))}
       </ol>
-
-      <div>
-        {props.books.length === 0 && (
-          <span style={{ display: "flex", justifyContent: "center" }}>
-            Please type to search...
-          </span>
-        )}
-      </div>
     </div>
   );
 }

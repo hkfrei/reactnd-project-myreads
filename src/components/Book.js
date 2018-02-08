@@ -4,7 +4,7 @@ import BookShelfChanger from "./BookShelfChanger";
 
 function Book(props) {
   /* object destructuring for cleaner code */
-  const { book } = props;
+  const { book, changeBookShelf } = props;
   return (
     <li>
       <div className="book">
@@ -17,10 +17,7 @@ function Book(props) {
               backgroundImage: `url(${book.imageLinks.smallThumbnail})`
             }}
           />
-          <BookShelfChanger
-            book={book}
-            changeBookShelf={props.changeBookShelf}
-          />
+          <BookShelfChanger book={book} changeBookShelf={changeBookShelf} />
         </div>
         <div className="book-title">{book.title}</div>
         <div className="book-authors">{book.authors}</div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import * as BooksAPI from "./../BooksAPI";
 import BooksGrid from "./BooksGrid";
 class BookSearch extends React.Component {
@@ -20,8 +21,26 @@ class BookSearch extends React.Component {
     }
     BooksAPI.search(query).then(response => {
       if (Array.isArray(response)) {
-        this.setState({ searchResults: response });
+        this.setState({ searchResults: this.replaceShelfedBooks(response) });
       }
+    });
+  };
+
+  /*
+    @description If a book from the searchresults is
+    allready in a shelf, replace it with the one from the shelf.
+    This makes sure, we can display the correct shelf in the bookShelfChanger.
+  */
+  replaceShelfedBooks = searchResults => {
+    const { bookInState, shelfedBooks } = this.props;
+    return searchResults.map((searchResult, index) => {
+      if (bookInState(searchResult.id)) {
+        const bookFromState = shelfedBooks.filter(
+          book => book.id === searchResult.id
+        );
+        searchResult = bookFromState[0];
+      }
+      return searchResult;
     });
   };
 
@@ -54,4 +73,9 @@ class BookSearch extends React.Component {
     );
   }
 }
+BookSearch.propTypes = {
+  shelfedBooks: PropTypes.array.isRequired,
+  changeBookShelf: PropTypes.func.isRequired,
+  bookInState: PropTypes.func.isRequired
+};
 export default BookSearch;
