@@ -66,6 +66,7 @@ Your app is ready to be deployed.
 ## Built With
 
 * [create-react-app](https://github.com/facebook/create-react-app) - Create React apps with no build configuration.
+* The source of the books database is obtained from Udacity's server: [https://reactnd-books-api.udacity.com](https://reactnd-books-api.udacity.com)
 
 ## Contributing
 
@@ -79,4 +80,4 @@ This is just a project for completing the React course. Contributing is not poss
 
 ## Acknowledgments
 
-* [UDACITY](https://github.com/udacity/reactnd-project-myreads-starter) for the starter template.
+* [UDACITY](https://github.com/udacity/reactnd-project-myreads-starter) for the starter template and the backend server.
