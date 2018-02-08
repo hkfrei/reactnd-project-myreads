@@ -47,6 +47,7 @@ class BookSearch extends React.Component {
   render() {
     /* Object destructuring for cleaner code */
     const { searchResults } = this.state;
+    const { changeBookShelf } = this.props;
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -64,10 +65,7 @@ class BookSearch extends React.Component {
           </div>
         </div>
         <div className="search-books-results">
-          <BooksGrid
-            books={searchResults}
-            changeBookShelf={this.props.changeBookShelf}
-          />
+          <BooksGrid books={searchResults} changeBookShelf={changeBookShelf} />
         </div>
       </div>
     );

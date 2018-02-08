@@ -3,16 +3,13 @@ import PropTypes from "prop-types";
 import Book from "./Book";
 
 function BooksGrid(props) {
+  const { books, changeBookShelf } = props;
   return (
     <div>
       <ol className="books-grid">
-        {props.books.length > 0 &&
-          props.books.map((book, index) => (
-            <Book
-              book={book}
-              key={index}
-              changeBookShelf={props.changeBookShelf}
-            />
+        {books.length > 0 &&
+          books.map((book, index) => (
+            <Book book={book} key={index} changeBookShelf={changeBookShelf} />
           ))}
       </ol>
     </div>

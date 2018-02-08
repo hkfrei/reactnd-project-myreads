@@ -2,13 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function BookShelfChanger(props) {
+  const { book, changeBookShelf } = props;
   return (
     <div className="book-shelf-changer">
       <select
         onChange={event => {
-          props.changeBookShelf(props.book, event.target.value);
+          changeBookShelf(book, event.target.value);
         }}
-        value={props.book.shelf || "none"}
+        value={book.shelf || "none"}
       >
         <option value="none" disabled>
           Move to...
